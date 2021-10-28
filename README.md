@@ -1,2 +1,5 @@
 # SDET_tool_chrome_plugin
- Chrome Plugin | Find id and name in DOM | SDET
+
+Chrome Plugin | Find id and name in DOM | SDET
+
+# Extention setup
