@@ -103,7 +103,7 @@ function scanDomForItemsOfInterest() {
 const handleMessages = (message) => {
   if (message === "add ids") addElements();
   else if (message === "remove ids") tags.forEach((el) => removeElement(el));
-  else if (message === "collect ids") qaEyeball();
+  else if (message === "collect ids") scanDomForItemsOfInterest();
 };
 
 // This listens to incoming message form extension popup
