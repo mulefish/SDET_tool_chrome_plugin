@@ -77,7 +77,7 @@ const addElement = (text, x, y, qaId, i) => {
   newDiv.addEventListener("click", () => removeElement(tags[i]));
 };
 // Core logic.
-function qaEyeball() {
+function scanDomForItemsOfInterest() {
   // zap any old tags
   tags.forEach((tag) => {
     deleteQATag(tag.qaId);
@@ -88,13 +88,11 @@ function qaEyeball() {
   let i = 0;
   for (let element of every_visible_element) {
     i++;
-    const kind = "" + element;
     const name = element.name;
     const id = element.id;
 
     if (isWorthLookingAt(kind, name, id, element)) {
       const rect = element.getBoundingClientRect();
-      // emitred(`${i}  ${kind} ${id} ${name} x ${rect.left} y ${rect.top}`);
       let me = getGUID(id, name);
       let qaId = "qa_" + i;
       tags.push({ me: me, x: rect.left, y: rect.top, qaId: qaId });
