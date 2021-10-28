@@ -1,6 +1,12 @@
 # SDET_tool_chrome_plugin
 
-Chrome Plugin | Find id and name in DOM | SDET
+This is a Chrome plugin for searching any DOM for element identifiers. The target audience would be for SDET people, to help them automate their scripts.
+
+# Status:  
+DONE: find dom nodes with ids    
+DONE: find dom nodes with names  
+TODO: find dom nodes with 'data' attributes  
+TODO: find dom nodes that has accesibility features  
 
 # Extention setup steps:   
 Step 0: copy this code   
