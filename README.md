@@ -7,6 +7,7 @@ DONE: find dom nodes with ids
 DONE: find dom nodes with names  
 TODO: find dom nodes with 'data' attributes  
 TODO: find dom nodes that has accesibility features  
+TODO: checkbox to toggle  between emitting to console and not emitting  
 
 # Extention setup steps:   
 Step 0: copy this code   
