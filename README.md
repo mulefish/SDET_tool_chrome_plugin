@@ -19,6 +19,8 @@ Step 5: point browser to some web page -> extensions icon in chrome -> 'bear'
 # screen caps
 Step1:  
 ![Step1 screen cap](sdet_step1.png?raw=true "step1 screen cap")  
+  
+  
 Step2:  
 ![Step2 screen cap](sdet_step2.png?raw=true "step2 screen cap")
 
