@@ -88,6 +88,7 @@ function scanDomForItemsOfInterest() {
   let i = 0;
   for (let element of every_visible_element) {
     i++;
+    const kind = "" + element.tagName; // Poor man's cast to a string
     const name = element.name;
     const id = element.id;
 
