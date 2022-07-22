@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // add event listeners
+    const showHrefButton = document.querySelector('#showHref')
     const addButton = document.querySelector('#add')
     const removeButton = document.querySelector('#remove')
     addButton.addEventListener('click',onClickAdd)
@@ -22,6 +23,14 @@ document.addEventListener('DOMContentLoaded', function () {
             chrome.tabs.sendMessage(tabs[0].id,'remove ids')
         })
     }
+
+    function onClickShowHref () {
+        chrome.tabs.query({currentWindow: true, active: true}, (tabs)=> {
+            chrome.tabs.sendMessage(tabs[0].id,'showHref')
+        })
+    }
+
+	
 })
 
 

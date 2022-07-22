@@ -100,11 +100,18 @@ function scanDomForItemsOfInterest() {
     }
   }
 }
+
+function showTheHrefs() { 
+	console.log(" hello " ) 
+}  
+
+
 // on messages callBack
 const handleMessages = (message) => {
   if (message === "add ids") addElements();
   else if (message === "remove ids") tags.forEach((el) => removeElement(el));
   else if (message === "collect ids") scanDomForItemsOfInterest();
+  else if (message === "showHref ) showTheHrefs(); 
 };
 
 // This listens to incoming message form extension popup
