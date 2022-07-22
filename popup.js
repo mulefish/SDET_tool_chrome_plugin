@@ -1,28 +1,28 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // add event listeners
-    const addButton = document.querySelector('#add')
-    const removeButton = document.querySelector('#remove')
-    addButton.addEventListener('click',onClickAdd)
-    removeButton.addEventListener('click',onClickRemove)
+// Initialize button with user's preferred color
+let changeColor = document.getElementById("changeColor");
 
-    // initialize data to be displayed on show ids
-    chrome.tabs.query({currentWindow: true, active: true}, (tabs)=> {
-        chrome.tabs.sendMessage(tabs[0].id,'collect ids')
-    })
+chrome.storage.sync.get("color", ({ color }) => {
+  changeColor.style.backgroundColor = color;
+});
 
-    // send messages to the injected script
-    function onClickAdd() {
-        chrome.tabs.query({currentWindow: true, active: true}, (tabs)=> {
-            chrome.tabs.sendMessage(tabs[0].id,'add ids')
-        })
-        
-    }
-    function onClickRemove () {
-        chrome.tabs.query({currentWindow: true, active: true}, (tabs)=> {
-            chrome.tabs.sendMessage(tabs[0].id,'remove ids')
-        })
-    }
-})
 
+// When the button is clicked, inject setPageBackgroundColor into current page
+changeColor.addEventListener("click", async () => {
+  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+	console.log("click") 
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    function: setPageBackgroundColor,
+  });
+});
+
+// The body of this function will be executed as a content script inside the
+// current page
+function setPageBackgroundColor() {
+	console.log("setPageBackgroundColor") 
+  chrome.storage.sync.get("color", ({ color }) => {
+    document.body.style.backgroundColor = color;
+  });
+}
 
 
