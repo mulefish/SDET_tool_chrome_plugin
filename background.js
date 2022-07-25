@@ -1,5 +1,3 @@
-// background.js
-
 let color = '#ff0000';
 
 chrome.runtime.onInstalled.addListener(() => {
